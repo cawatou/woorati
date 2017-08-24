@@ -1,0 +1,46 @@
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+    <h1 translate>HEAD_TEXT</h1>
+    <p class="lead" translate>INTRO_TEXT</p>
+    <div class="input-group url-input-group" ng-hide="hideInputField">
+        <input type="text" class="form-control url-input-control" ng-class="input.error" placeholder="{{'INPUT_PLACEHOLDER' | translate}}" ng-enter="showEmailField()" ng-model="input.url" ng-change="checkUrl()">
+        <span class="input-group-btn">
+            <a ng-href="#/" class="btn btn-primary go-btn" type="button" ng-class="goBtn.disabled" ng-click="showEmailField()">submit</a>
+        </span>
+    </div>
+    <div ng-hide="hideEmailField">
+        <p>Submit us your email address below and we will send you an email when the test is completed :)</p>
+        <div class="input-group url-input-group">
+            <input type="email" class="form-control url-input-control" ng-class="input.error" placeholder="email" ng-model="input.email" ng-change="checkEmail()">
+            <span class="input-group-btn">
+                <a ng-href="#/" class="btn btn-primary go-btn" type="button" ng-class="goEmailBtn.disabled" ng-click="find_meta()" translate>GO_BTN</a>
+            </span>
+        </div>
+    </div>
+    <div ng-hide="hideResultField">
+        <p class="result">The result is sent to your email address</p>
+    </div>
+    <div class="url-error-alert">
+        <alert ng-repeat="alert in url_error_alerts" type="{{alert.type}}" close="closeUrl_error_alert($index)">{{alert.msg}}</alert>
+    </div>
+    <div class="test-result-url" ng-hide="!testResultUrl">
+        <a ng-href="{{testResultUrl}}" target="_blank">{{testResultMsg}}</a>
+    </div>
+    <div class="test-result-url" ng-hide="!testNew">
+        <!--<a ng-href="{{testNewUrl}}" target="_blank" ng-click="redoTest()">{{testNewMsg}}</a>-->
+        <span ng-click="redoTest()">{{testNewMsg}}</span>
+    </div>
+    <div class="container pct-completed" ng-hide="progressBarHide">
+        <div class="completed-value">
+        {{percentage_completed}}%
+        </div>
+        <img class="server-loading-progress-bar" src="/assets/progress_bar.gif" alt="loading..." />
+    </div>
+    <figure class="container screen-shot-container" ng-hide="!img_bin_data">
+        <figure>
+            <img class="screen-shot" src= "{{img_bin_data}}" alt="screen shot" />
+            <figcaption>screen-shot</figcaption>
+        </figure>
+    </figure>
+</div>
+

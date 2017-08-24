@@ -1,0 +1,22 @@
+{
+    "NAV": {
+        "LINK_1": "Link 1",
+        "LINK_2": "Link 22",
+        "LINK_3": "Dropdown Link <b class='caret'></b>",
+        "SIGN_IN": "Sign In",
+        "REGISTER": "Register"
+    },
+    "HEAD_TEXT": "Analyse your website",
+    "INTRO_TEXT": "Optimize your website for better performance and availability for your customers. Enter your website URL below and we will do the rest.",
+    "INPUT_PLACEHOLDER": "enter URL",
+    "GO_BTN": "GO!",
+    "SERVICE_INFO_1_TITLE": "Info box 1",
+    "SERVICE_INFO_1_DESC": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+    "SERVICE_INFO_2_TITLE": "Info box 2",
+    "SERVICE_INFO_2_DESC": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+    "SERVICE_INFO_3_TITLE": "Info box 3",
+    "SERVICE_INFO_3_DESC": "Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.",
+    "NOT_FOUND": "Not found!",
+    "MAIN_MIRROR_ERROR": "The redirect needs to be set up",
+    "API_ERROR": "Not found!"
+}

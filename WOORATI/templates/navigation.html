@@ -1,0 +1,57 @@
+
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+
+    <button type="button" class="navbar-toggle tt" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">Woorati</a>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed = true">
+
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="" translate>NAV.LINK_1</a></li>
+        <li><a href="" translate>NAV.LINK_2</a></li>
+
+        <li class="dropdown" dropdown>
+            <a href="" class="dropdown-toggle" dropdown-toggle translate>NAV.LINK_3</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="user"><a href="/#/login" translate>NAV.SIGN_IN</a></li>
+        <li ng-show="user"><a href="/#/subscription">credits <span class="badge badge-grey">{{user.subscription_left}}</span></a></li>
+        <li class="dropdown" dropdown ng-show="user">
+            <a href="" class="dropdown-toggle user-info" dropdown-toggle><img class="user-avatar" src="{{user.avatar}}" alt="user avatar" />{{user.name}}</a>
+            <ul class="dropdown-menu">
+                <li id="signOut"><a href="">Sign Out</a></li>
+                <li><a href="/#/profile">profile</a></li>
+            </ul>
+            <script>
+                $('#signOut').click(function() {
+                    document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                    window.location.href = "/";
+                });
+            </script>
+        </li>
+        <li><a href="/#/registration" translate>NAV.REGISTER</a></li>
+        <li class="dropdown" dropdown>
+            <a href="" class="dropdown-toggle" dropdown-toggle>{{active_lang}}<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="lang in inactive_langs" ng-click="setLang(lang)"><a href="" >{{lang}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div><!-- /.navbar-collapse -->

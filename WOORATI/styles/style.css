@@ -1,0 +1,216 @@
+.url-input-group {
+    width: 70%;
+    margin: auto;
+}
+
+.url-input-control, .go-btn {
+    height: 50px !important;
+    font-size: 20px !important;
+}
+
+.url-input-error {
+    background-color: #f2dede !important;
+}
+
+.url-error-alert {
+    margin: 20px;
+}
+
+table th {
+    padding: 20px !important;
+    padding-left: 100px !important;
+    font-size: 1.5em
+}
+
+table td {
+    padding: 10px !important;
+    padding-left: 50px !important;
+    font-size: 1.2em;
+}
+
+.group-title {
+  font-size: 2em;
+  border-bottom: 1px solid lightgray;
+}
+
+.analysis-group .row{
+  border-bottom: 1px solid lightgray;
+  padding: 5px;
+}
+
+.analysis-response{
+  padding-left: 25px !important;
+}
+
+.completed-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.server-loading-progress-bar, .completed-value {
+  text-align: center;
+}
+
+.screen-shot {
+  width: 200px;
+}
+
+.screen-shot-container {
+  text-align: center;
+}
+
+.loader {
+    height: 30px;
+}
+
+.suggestion_icon {
+    height: 20px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+
+td {
+    position: relative;
+}
+
+.suggestion_text {
+    height: 0px;
+    overflow: hidden;
+
+    transition:height 1s ease-in-out;
+    -moz-transition:height 1s; /* Firefox 4 */
+    -webkit-transition:height 1s; /* Safari and Chrome */
+    -o-transition:height 1s; /* Opera */ 
+}
+
+
+.ajax_response {
+    width: 100%;
+}
+
+.see-all, .see-less {
+    color: #3b5998;
+    cursor: pointer;
+}
+
+.see-all:hover, .see-less:hover {
+    text-decoration: underline;
+}
+
+.task_marker {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.yandex-snippet-content {
+  display: inline-block;
+}
+
+.yandex-snippet {
+  padding: 5px;
+  background: #f6f5f3;
+}
+
+.yandex-snippet-content-title, .yandex-snippet-content-text {
+  margin: 5px;
+}
+
+.yandex-snippet-content-title {
+  font-size: 1.5em;
+}
+
+.yandex-snippet img {
+  width: 100px;
+}
+
+.required {
+  font-weight: bold;
+  font-size: 1.5em;
+  vertical-align: top;
+}
+
+.panel-info, .panel-heading {
+  border-color: #eee !important;
+}
+
+.panel-heading {
+  background-color: #eee !important;
+}
+
+.pdf-downloader {
+  text-align: right;
+}
+
+.pdf-downloader strong {
+  cursor: pointer;
+}
+
+.user-info {
+  padding-bottom: 14px !important;
+}
+
+.user-avatar {
+  width: 20px; height: 20px;
+}
+
+.test-result-url span {
+  color: #337ab7;
+  cursor: pointer;
+}
+
+.test-result-url span:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+.pdf-view-suggestion {
+  height: auto !important;
+}
+
+.login-error-alert {
+  margin: 10px;
+}
+
+.result {
+  color: green;
+  margin-top: 20px;
+}
+/*
+.view-animate-container {
+  position:relative;
+}
+
+.view-animate {
+  padding:10px;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  opacity: 1;
+}
+.view-animate.ng-enter.ng-enter-active {
+  opacity: 0.5;
+  bottom: 0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  opacity: 0;
+}*/

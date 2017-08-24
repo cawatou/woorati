@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <!-- base tag for removing # from url -->
+        <base href="/">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Woorati App</title>
+        <!-- Custom stylesheet -->
+        <link href="styles/style.css" rel="stylesheet">
+        
+        <!-- Bootstrap -->
+        <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body ng-controller="mainCtrl">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation" ng-include="templates.navBar"></nav>
+            <header ng-include="templates.header"></header>
+            <section class="dynamic-container view-container" ng-view>
+            </section>
+            <hr>
+            <footer class="footer" ng-include="templates.footer"></footer>
+        </div>
+
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="lib/angular-gettext/dist/angular-gettext.min.js"></script>
+        <script src="lib/translations/translations.js"></script>
+        <script src="script/main.js"></script>
+        <script src="script/mainCtrl.js"></script>
+        <script src="script/mainService.js"></script>
+        <script src="script/resultCtrl.js"></script>
+        <script src="script/resultService.js"></script>
+        <script src="script/registrationCtrl.js"></script>
+        <script src="script/registrationService.js"></script>
+        <script src="script/loginCtrl.js"></script>
+        <script src="script/loginService.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script>
+        <script src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript">
+            function stripeResponseHandler(status, response) {
+                var $form = $('#payment-form');
+
+                if (response.error) {
+                // Show the errors on the form
+                    //$form.find('.payment-errors').text(response.error.message);
+                    var html = '<div class="alert alert-danger subscription-alert" role="alert" >'+
+                        '<strong>Error!</strong> <span class="alert-msg">'+response.error.message+'</span></div>';
+                    $('.subscription-alert').empty();
+                    $('.subscription-alert').append($.parseHTML(html));
+                    $form.find('button').prop('disabled', false);
+                } else {
+                    // response contains id and card, which contains additional card details
+                    var token = response.id;
+                    var scope = angular.element($("body")).scope();
+                    $.ajax({
+                        url: '/subscription',
+                        dataType: 'json',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify( {stripeToken: token} ),
+                        processData: false,
+                        success: function( data, textStatus, jQxhr ){
+                            $form.find('button').prop('disabled', false);
+                            scope.$apply(function(){
+                                scope.user.subscription_left = data.subscription_left;
+                            });
+                            $form.find('input').val('');
+                            var html = '<div class="alert alert-success subscription-alert" role="alert" >'+
+                                    '<strong>Success!</strong> <span class="alert-msg">Payment Recieved!</span></div>';
+                            $('.subscription-alert').empty();
+                            $('.subscription-alert').append($.parseHTML(html));
+                        },
+                        error: function( jqXhr, textStatus, errorThrown ){
+                            console.log( errorThrown );
+                            $form.find('button').prop('disabled', false);
+                            var html = '<div class="alert alert-danger subscription-alert" role="alert" >'+
+                                '<strong>Error!</strong> <span class="alert-msg">'+errorThrown+'</span></div>';
+                            $('.subscription-alert').empty();
+                            $('.subscription-alert').append($.parseHTML(html));
+                        }
+                    });
+
+                }
+            };
+        </script>
+    </body>
+</html>

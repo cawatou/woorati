@@ -1,0 +1,503 @@
+<div class="woorati-response-holder">
+    <div class="pdf-downloader"><strong><u><a ng-href="/export/test/{{test_id}}" target="_blank">Get in PDF</a></u></strong></div>
+    <div class="analysis-group on-site-analysis" ng-hide="!on_site_analysis.group">
+        <div class="group-title">
+            <strong>{{on_site_analysis.group}}</strong>
+        </div><!--
+        <div class="row" ng-hide="!url">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">{{url.title}}<img class="task_marker" src="{{url.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response" >redirects to: {{url.content}}</p>
+                <span class="proirity text-muted" >priority: {{url.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('url')"/>
+                <p class="suggestion_text">
+                    <span class="url">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>-->
+        <div class="row" ng-hide="!smtp">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">{{smtp.content.url}}<img class="task_marker" src="{{smtp.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response" >status code: {{smtp.content.status}}</p>
+                <span class="proirity text-muted">priority: {{smtp.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('smtp')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="smtp">Status Codes: 0 -> Domain doesn't exist and 200 -> Domain exist</span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!mail">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">{{mail.content.url}}<img class="task_marker" src="{{mail.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">status code: {{mail.content.status}}</p>
+                <span class="proirity text-muted">priority: {{mail.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('mail')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="mail">Status Codes: 0 -> Domain doesn't exist and 200 -> Domain exist</span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!ftp">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">{{ftp.content.url}}<img class="task_marker" src="{{ftp.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">status code: {{ftp.content.status}}</p>
+                <span class="proirity text-muted">priority: {{ftp.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('ftp')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="ftp">Status Codes: 0 -> Domain doesn't exist and 200 -> Domain exist</span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!main_mirror">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">The main mirror<img class="task_marker" src="{{main_mirror.marker_img}}"/>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">{{main_mirror.content}}</p>
+                <span class="proirity text-muted">priority: {{main_mirror.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('url2')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="url2">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!domain_age">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Domain age<img class="task_marker" src="{{domain_age.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="domain_age.content">{{domain_age.content}}</span>
+                    <span ng-if="!domain_age.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{domain_age.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('domain_age')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="domain_age">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!last_modified">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Last modified<img class="task_marker" src="{{last_modified.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="last_modified.content">{{last_modified.content}}</span>
+                    <span ng-if="!last_modified.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{last_modified.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('last_modified')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="last_modified">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>   
+        <div class="row" ng-hide="!description_meta_tag">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Meta description tag<img class="task_marker" src="{{description_meta_tag.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">content: {{description_meta_tag.content}}</p>
+                <p class="ajax_response">length: {{description_meta_tag.content_length}}</p>
+                <span class="proirity text-muted">priority: {{description_meta_tag.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('description_meta_tag')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="description_meta_tag">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!title_tag">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Title tag<img class="task_marker" src="{{title_tag.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">content: {{title_tag.content}}</p>
+                <p class="ajax_response">length: {{title_tag.content_length}}</p>
+                <span class="proirity text-muted">priority: {{title_tag.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('title_tag')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="title_tag">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!h1_tags">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">H1 tags<img class="task_marker" src="{{h1_tags.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response" >Total: {{h1_tags.content.length}}</p>
+                <span class="proirity text-muted">priority: {{h1_tags.priority}}</span>
+                <p class="ajax_response">
+                    <code ng-repeat="tag in h1_tags.content | limitTo:h1_tags.limit" style="margin-right: 5px">{{tag}} </code>
+                    <span class="see-all" ng-hide="h1_tags.content.length === h1_tags.limit" ng-click="seeAll('h1_tags')">...See all</span>
+                    <span class="see-less" ng-show="h1_tags.limit > 5" ng-click="seeLess('h1_tags')">..See less</span>
+                </p>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('h1_tags')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="h1_tags">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!img_tags">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">img tags<img class="task_marker" src="{{img_tags.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">Total: {{img_tags.total_img_tags}}</p>
+                <span class="proirity text-muted">priority: {{img_tags.priority}}</span>
+                <p class="ajax_response">
+                    Without 'alt' attribute: {{img_tags.tags_without_alt.length}}<br />
+                    <code ng-repeat="tag in img_tags.tags_without_alt | limitTo:img_tags.limit" style="margin-right: 5px">{{tag}}</code>
+                    <span class="see-all" ng-hide="img_tags.tags_without_alt.length === img_tags.limit" ng-click="seeAll('img_tags')">...See all</span>
+                    <span class="see-less" ng-show="img_tags.limit > 5" ng-click="seeLess('img_tags')">..See less</span>
+                </p>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('img_tags')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="img_tags">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!links">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Links<img class="task_marker" src="{{links.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">Total: {{links.total_links}}</p>
+                <span class="proirity text-muted">priority: {{links.priority}}</span>
+                <p class="ajax_response">
+                    Broken links: {{links.broken_links.length}}<br />
+                    <code ng-repeat="tag in links.broken_links | limitTo:links.limit" style="margin-right: 5px">{{tag}}</code>
+                    <span class="see-all" ng-hide="links.broken_links.length === links.limit" ng-click="seeAll('links')">...See all</span>
+                    <span class="see-less" ng-show="links.limit > 5" ng-click="seeLess('links')">..See less</span>
+                </p>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('links')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="links">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_analytics">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google analytics<img class="task_marker" src="{{google_analytics.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="google_analytics.content">{{google_analytics.content}}</span>
+                    <span ng-if="!google_analytics.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{google_analytics.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_analytics')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_analytics">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!ya_metrika">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Yandex metrika<img class="task_marker" src="{{ya_metrika.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="ya_metrika.content">{{ya_metrika.content}}</span>
+                    <span ng-if="!ya_metrika.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{ya_metrika.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('ya_metrika')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="ya_metrika">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!robots_txt">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Robots.txt file<img class="task_marker" src="{{robots_txt.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response" style="white-space: pre-wrap;">
+                    <span ng-if="robots_txt.content">{{robots_txt.content | limitTo:robots_txt.limit}}</span>
+                    <span ng-if="!robots_txt.content">Not Found</span>
+                </p>
+                <span class="see-all" ng-hide="robots_txt.content.length === robots_txt.limit" ng-click="seeAll('robots_txt')">...See all </span>
+                <span class="see-less" ng-show="robots_txt.limit > 300" ng-click="seeLess('robots_txt')">..See less</span>
+                <span class="proirity text-muted">priority: {{robots_txt.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('robots_txt')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="robots_txt">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!valid_sitemap">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">valid_sitemaps<img class="task_marker" src="{{valid_sitemap.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response" ng-repeat="value in valid_sitemap.value">
+                <p class="ajax_response">
+                    <span ng-if="value.sitemap">Sitemap: {{value.sitemap}}</span>
+                    <span ng-if="!value.sitemap">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{value.priority}}</span>
+                <p class="ajax_response" ng-if="value.content">Content: <code>{{value.content | limitTo:value.limit}}</code></p>
+                <span class="see-all" ng-if="value.content" ng-hide="value.content.length === value.limit" ng-click="seeAll('valid_sitemap')">...See all </span>
+                <span class="see-less" ng-if="value.content" ng-show="value.limit > 300" ng-click="seeLess('valid_sitemap')">..See less</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('valid_sitemap')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="valid_sitemap">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_total_indexed_page">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Total pages indexed by Google:<img class="task_marker" src="{{google_total_indexed_page.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="google_total_indexed_page.content">{{google_total_indexed_page.content}}</span>
+                    <span ng-if="!google_total_indexed_page.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{google_total_indexed_page.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_total_indexed_page')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_total_indexed_page">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!yandex_total_indexed_page">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Total pages indexed by Yandex:<img class="task_marker" src="{{yandex_total_indexed_page.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="yandex_total_indexed_page.content">{{yandex_total_indexed_page.content}}</span>
+                    <span ng-if="!yandex_total_indexed_page.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{yandex_total_indexed_page.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('yandex_total_indexed_page')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="yandex_total_indexed_page">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!yandex_catalog">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">In Yandex catalog:<img class="task_marker" src="{{yandex_catalog.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <span ng-if="yandex_catalog.content">{{yandex_catalog.content}}</span>
+                    <span ng-if="!yandex_catalog.content">Not Found</span>
+                </p>
+                <span class="proirity text-muted">priority: {{yandex_catalog.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('yandex_catalog')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="yandex_catalog">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_desktop_page_speed">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google desktop-page speed insight:<img class="task_marker" src="{{google_desktop_page_speed.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">{{google_desktop_page_speed.content}}/100</p>
+                <span class="proirity text-muted">priority: {{google_desktop_page_speed.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_desktop_page_speed')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_desktop_page_speed">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_desktop_page_screenshot">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Desktop screenshot from google page insight:<img class="task_marker" src="{{google_desktop_page_screenshot.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <img src="{{google_desktop_page_screenshot.content}}" alt="desktop screen shot from google page insight" />
+                </p>
+                <span class="proirity text-muted">priority: {{google_desktop_page_screenshot.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_desktop_page_screenshot')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_desktop_page_screenshot">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_mobile_page_speed">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google mobile-page speed insight:<img class="task_marker" src="{{google_mobile_page_speed.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">{{google_mobile_page_speed.content}}/100</p>
+                <span class="proirity text-muted">priority: {{google_mobile_page_speed.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_mobile_page_speed')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_mobile_page_speed">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_mobile_page_usability">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google mobile page insight usability:<img class="task_marker" src="{{google_mobile_page_usability.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">{{google_mobile_page_usability.content}}/100</p>
+                <span class="proirity text-muted">priority: {{google_mobile_page_usability.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_mobile_page_usability')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_mobile_page_usability">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_mobile_page_screenshot">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Mobile screenshot from google page insight:<img class="task_marker" src="{{google_mobile_page_screenshot.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <img src="{{google_mobile_page_screenshot.content}}" alt="desktop screen shot from google page insight" />
+                </p>
+                <span class="proirity text-muted">priority: {{google_mobile_page_screenshot.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_mobile_page_screenshot')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_mobile_page_screenshot">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!webtest_different_location">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Web test:<img class="task_marker" src="{{webtest_different_location.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <div class="ajax_response">
+                    <div class="ip-instance-location-test" ng-repeat="result in webtest_different_location.content">
+                        <strong>{{result.key}}</strong>
+                        <p class="ip-instance-location-test-results">
+                            <strong>First View</strong>
+                            <br>
+                            <span>Total time to load</span>: <span>{{result.value.firstView.load_time}} ms</span>
+                            <br>
+                            <span>Site started displaying after</span>: <span>{{result.value.firstView.time_to_first_byte}} ms</span>
+                            <br>
+                            <span>Total requests made for full site to load</span>: <span>{{result.value.firstView.total_request_made}} ms</span>
+                        </p>
+                         <p class="ip-instance-location-test-results">
+                            <strong>Repeat View</strong>
+                            <br>
+                            <span>Total time to load</span>: <span>{{result.value.repeatView.load_time}} ms</span>
+                            <br>
+                            <span>Site started displaying after</span>: <span>{{result.value.repeatView.time_to_first_byte}} ms</span>
+                            <br>
+                            <span>Total requests made for full site to load</span>: <span>{{result.value.repeatView.total_request_made}} ms</span>
+                        </p>
+                    </div>
+                </div>
+                <span class="proirity text-muted">priority: {{webtest_different_location.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('webtest_different_location')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="webtest_different_location">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!google_snippet_screenshot">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google snippet preview:<img class="task_marker" src="{{google_snippet_screenshot.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <p class="ajax_response">
+                    <img src="{{google_snippet_screenshot.content}}" style="width: 500px" alt="desktop screen shot from google page insight" />
+                </p>
+                <span class="proirity text-muted">priority: {{google_snippet_screenshot.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_snippet_screenshot')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="google_snippet_screenshot">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+        <div class="row" ng-hide="!yandex_snippet">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Yandex snippet preview:<img class="task_marker" src="{{yandex_snippet.marker_img}}"/></div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                <div class="ajax_response yandex-snippet" ng-hide="!yandex_snippet.content.image">
+                    <img src="{{yandex_snippet.content.image}}" style="width: 15%" alt="desktop screen shot from google page insight" />
+                    <div class="yandex-snippet-content" style="width: 80%">
+                        <div class="yandex-snippet-content-title">{{yandex_snippet.content.title}}</div>
+                        <div class="yandex-snippet-content-text">{{yandex_snippet.content.content}}</div>
+                    </div>
+                </div>
+                <div class="ajax_response yandex-snippet" ng-hide="yandex_snippet.content.image">
+                    <div class="yandex-snippet-content" style="width: 100%">
+                        <div class="yandex-snippet-content-title">{{yandex_snippet.content.title}}</div>
+                        <div class="yandex-snippet-content-text">{{yandex_snippet.content.content}}</div>
+                    </div>
+                </div>
+                <span class="proirity text-muted">priority: {{yandex_snippet.priority}}</span>
+                <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('yandex_snippet')"/>
+                <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                    <span class="yandex_snippet">Here goes the suggestion text for the users. </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="analysis-group web-spidering" ng-hide="!web_spider">
+        <div class="group-title">
+            <strong>Web spidering {{url}}</strong>
+        </div>
+        <div class="web-spidering-items" ng-repeat="item in web_spider">
+            <div class="web-spidering-group-title">
+                <strong>{{item.url}}</strong>
+            </div>
+            <div class="row" ng-hide="!item.description_meta_tag">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Meta description tag<img class="task_marker" src="{{item.description_meta_tag.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">content: {{item.description_meta_tag.content}}</p>
+                    <p class="ajax_response">length: {{item.description_meta_tag.content.length}}</p>
+                    <span class="proirity text-muted">priority: {{item.description_meta_tag.priority}}</span>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('description_meta_tag'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="description_meta_tag description_meta_tag{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.title_tag">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Title tag<img class="task_marker" src="{{item.title_tag.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">content: {{item.title_tag.content}}</p>
+                    <p class="ajax_response">length: {{item.title_tag.content.length}}</p>
+                    <span class="proirity text-muted">priority: {{item.title_tag.priority}}</span>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('title_tag'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="title_tag title_tag{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.h1_tags">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">H1 tags<img class="task_marker" src="{{item.h1_tags.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response" >Total: {{item.h1_tags.content.length}}</p>
+                    <span class="proirity text-muted">priority: {{item.h1_tags.priority}}</span>
+                    <p class="ajax_response">
+                        <code ng-repeat="tag in item.h1_tags.content" style="margin-right: 5px">{{tag}} </code>
+                    </p>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('h1_tags'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="h1_tags h1_tags{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.img_tags">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">img tags<img class="task_marker" src="{{item.img_tags.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">Total: {{item.img_tags.total_img_tags}}</p>
+                    <span class="proirity text-muted">priority: {{item.img_tags.priority}}</span>
+                    <p class="ajax_response">
+                        Without 'alt' attribute: {{item.img_tags.tags_without_alt.length}}<br />
+                        <code ng-repeat="tag in item.img_tags.tags_without_alt" style="margin-right: 5px">{{tag}}</code>
+                    </p>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('img_tags'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="img_tags img_tags{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.links">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Links<img class="task_marker" src="{{item.links.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">Total: {{item.links.total_links}}</p>
+                    <span class="proirity text-muted">priority: {{item.links.priority}}</span>
+                    <p class="ajax_response">
+                        Broken links: {{item.links.broken_links.length}}<br />
+                        <code ng-repeat="tag in item.links.broken_links" style="margin-right: 5px">{{tag}}</code>
+                    </p>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('links'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="links links{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.google_analytics">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Google analytics<img class="task_marker" src="{{item.google_analytics.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">
+                        <span ng-if="item.google_analytics.content">{{item.google_analytics.content}}</span>
+                        <span ng-if="!item.google_analytics.content">Not Found</span>
+                    </p>
+                    <span class="proirity text-muted">priority: {{item.google_analytics.priority}}</span>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('google_analytics'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="google_analytics google_analytics{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" ng-hide="!item.ya_metrika">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 analysis-task">Yandex metrika<img class="task_marker" src="{{item.ya_metrika.marker_img}}"/></div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 analysis-response">
+                    <p class="ajax_response">
+                        <span ng-if="item.ya_metrika.content">{{item.ya_metrika.content}}</span>
+                        <span ng-if="!item.ya_metrika.content">Not Found</span>
+                    </p>
+                    <span class="proirity text-muted">priority: {{item.ya_metrika.priority}}</span>
+                    <img src="/assets/suggestions.png" alt="suggestions" class="suggestion_icon" ng-click="toggleSuggestion('ya_metrika'+$index)"/>
+                    <p class="suggestion_text" ng-class="{'pdf-view-suggestion': fileFormat==='pdf'}" >
+                        <span class="ya_metrika ya_metrika{{$index}}">Here goes the suggestion text for the users. </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

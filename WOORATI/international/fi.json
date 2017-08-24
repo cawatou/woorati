@@ -1,0 +1,22 @@
+{
+    "NAV": {
+        "LINK_1": "Linkki 1",
+        "LINK_2": "Linkki 22",
+        "LINK_3": "Avattavasta Linkki <b class='caret'></b>",
+        "SIGN_IN": "Kirjaudu Sisään",
+        "REGISTER": "Ilmoittautua"
+    },
+    "HEAD_TEXT": "Analysoi verkkosivuston",
+    "INTRO_TEXT": "Optimoida sivustosi paremman suorituskyvyn ja käytettävyyden asiakkaillesi. Anna sivuston URL-osoite alla ja me teemme loput.",
+    "INPUT_PLACEHOLDER": "kirjoita URL",
+    "GO_BTN": "Lähteä!",
+    "SERVICE_INFO_1_TITLE": "Kirjan tiedot 1",
+    "SERVICE_INFO_1_DESC": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+    "SERVICE_INFO_2_TITLE": "Kirjan tiedot 2",
+    "SERVICE_INFO_2_DESC": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.",
+    "SERVICE_INFO_3_TITLE": "Kirjan tiedot3",
+    "SERVICE_INFO_3_DESC": "Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.",
+    "NOT_FOUND": "Ei löytynyt",
+    "MAIN_MIRROR_ERROR": "Uudelleenohjaus on perustettava",
+    "API_ERROR": "Ei löytynyt"
+}

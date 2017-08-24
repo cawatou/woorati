@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en_US\n"
+
+#: WOORATI/templates/header.html:8
+msgid "GO_BTN"
+msgstr "GO!"
+
+#: WOORATI/templates/header.html:3
+msgid "HEAD_TEXT"
+msgstr "Analyse your website"
+
+#: WOORATI/templates/header.html:6
+msgid "INPUT_PLACEHOLDER"
+msgstr "enter URL"
+
+#: WOORATI/templates/header.html:4
+msgid "INTRO_TEXT"
+msgstr "Optimize your website for better performance and availability for your customers. Enter your website URL below and we will do the rest."
+
+#: WOORATI/templates/navigation.html:18
+msgid "NAV.LINK_1"
+msgstr "link 1"
+
+#: WOORATI/templates/navigation.html:19
+msgid "NAV.LINK_2"
+msgstr "link 2"
+
+#: WOORATI/templates/navigation.html:22
+msgid "NAV.LINK_3"
+msgstr "link 3"
+
+#: WOORATI/templates/navigation.html:35
+msgid "NAV.REGISTER"
+msgstr "register"
+
+#: WOORATI/templates/navigation.html:34
+msgid "NAV.SIGN_IN"
+msgstr "sign in"
+
+#: WOORATI/templates/service_info.html:5
+msgid "SERVICE_INFO_1_DESC"
+msgstr "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui."
+
+#: WOORATI/templates/service_info.html:4
+msgid "SERVICE_INFO_1_TITLE"
+msgstr "Info box 1"
+
+#: WOORATI/templates/service_info.html:10
+msgid "SERVICE_INFO_2_DESC"
+msgstr "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui."
+
+#: WOORATI/templates/service_info.html:9
+msgid "SERVICE_INFO_2_TITLE"
+msgstr "Info box 2"
+
+#: WOORATI/templates/service_info.html:15
+msgid "SERVICE_INFO_3_DESC"
+msgstr "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui."
+
+#: WOORATI/templates/service_info.html:14
+msgid "SERVICE_INFO_3_TITLE"
+msgstr "Info box 3"

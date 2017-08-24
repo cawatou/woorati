@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: WOORATI/templates/header.html:8
+msgid "GO_BTN"
+msgstr ""
+
+#: WOORATI/templates/header.html:3
+msgid "HEAD_TEXT"
+msgstr ""
+
+#: WOORATI/templates/header.html:6
+msgid "INPUT_PLACEHOLDER"
+msgstr ""
+
+#: WOORATI/templates/header.html:4
+msgid "INTRO_TEXT"
+msgstr ""
+
+#: WOORATI/templates/navigation.html:18
+msgid "NAV.LINK_1"
+msgstr ""
+
+#: WOORATI/templates/navigation.html:19
+msgid "NAV.LINK_2"
+msgstr ""
+
+#: WOORATI/templates/navigation.html:22
+msgid "NAV.LINK_3"
+msgstr ""
+
+#: WOORATI/templates/navigation.html:35
+msgid "NAV.REGISTER"
+msgstr ""
+
+#: WOORATI/templates/navigation.html:34
+msgid "NAV.SIGN_IN"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:5
+msgid "SERVICE_INFO_1_DESC"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:4
+msgid "SERVICE_INFO_1_TITLE"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:10
+msgid "SERVICE_INFO_2_DESC"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:9
+msgid "SERVICE_INFO_2_TITLE"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:15
+msgid "SERVICE_INFO_3_DESC"
+msgstr ""
+
+#: WOORATI/templates/service_info.html:14
+msgid "SERVICE_INFO_3_TITLE"
+msgstr ""
